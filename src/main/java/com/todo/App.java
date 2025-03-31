@@ -21,12 +21,24 @@ public class App{
     public static List<String> getTodos() {
         return todos;
     }
+
+    public static void removeTodos(String task) {
+        for (int i = 0; i < todos.size(); i++) {
+            if( todos.get(i).equals(task)) {
+                todos.remove(i);
+                System.out.println("Removed:" + task );
+                return;
+            }
+        }
+        System.out.println("Task not found");
+    }
     
 
     public static void main(String[] args) {
         addTodo("Learn CI/CD");
         addTodo("Write Java Tests");
         listTodos();
+        removeTodos("Learn CI/CD");
     }
 
 }
